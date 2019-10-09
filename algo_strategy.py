@@ -22,8 +22,7 @@ Advanced strategy tips:
 class AlgoStrategy(gamelib.AlgoCore):
     def __init__(self):
         super().__init__()
-        seed = random.randrange(maxsize)
-        random.seed(seed)
+        random.seed(1234)
         gamelib.debug_write('Random seed: {}'.format(seed))
 
     def on_game_start(self, config):
@@ -107,7 +106,7 @@ class AlgoStrategy(gamelib.AlgoCore):
 
 
     def use_extra_cores(self, game_state):
-        destructor_spawn_location = [[9,10], [11,10],[13,10], [15,10], [17,10], [19,10]]
+        destructor_spawn_location = [[8,9], [10,9],[12,9], [14,9], [16,9], [18,9]]
         for location in destructor_spawn_location:
             if (game_state.get_resource(game_state.CORES) >= game_state.type_cost(DESTRUCTOR)):
                 filter_location = [[location[0], location[1]+1],[location[0]-1, location[1]+1]]
